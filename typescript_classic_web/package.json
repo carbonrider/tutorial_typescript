@@ -1,0 +1,23 @@
+{
+  "name": "typescript_classic_web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc --w",
+    "html:copy": "copyfiles -u 1 -e **/*.ts dist/",
+    "html:watch": "nodemon --ignore dist --ignore node_modules -e html -e css -x\"npm run html:copy\"",
+    "start": "concurrently \"npm run html:watch\" \"npm run compile\""
+  },
+  "keywords": [],
+  "author": "Yogesh Jadhav",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "copyfiles": "^2.0.0",
+    "nodemon": "^1.18.3",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1"
+  }
+}
