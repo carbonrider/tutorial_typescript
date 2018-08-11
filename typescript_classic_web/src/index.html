@@ -9,21 +9,19 @@
 </head>
 <body>
     <nav>
-        <div class="title">User Management</div>
+        <div class="title">User Management Form</div>
     </nav>
     <main>
-        <section id="users">
-        </section>
         <section id="userForm">
-            <form onsubmit="return submitUserDetails();">
+            <form onsubmit="return submitUserDetails()" method="POST">
                 <table border="0" class="form-table">
                     <tr>
                         <td>Name</td>
-                        <td><input type="text" name="name" autocomplete="off"></td>
+                        <td><input type="text" id="name" autocomplete="off"></td>
                     </tr>
                     <tr>
                         <td>Job</td>
-                        <td><input type="text" name="job" autocomplete="off"></td>
+                        <td><input type="text" id="job" autocomplete="off"></td>
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
