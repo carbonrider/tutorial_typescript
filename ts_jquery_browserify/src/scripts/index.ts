@@ -1,24 +1,19 @@
-// Logic goes here.
+import { UserRepository } from './user';
+import { IAPIResponse } from './usermodel';
 
 import $ from 'jquery';
-import { StudentRepository } from './student';
 
-$(document).ready(listStudentData);
+$(document).ready(invokeAPI);
 
-function listStudentData() {
-    const student = new StudentRepository();
-    student.fetchStudents(renderStudents);
+function invokeAPI() {
+    const userRepo = new UserRepository();
+    userRepo.fetchUsers(renderUsers);
 }
 
-function renderStudents(data: any) {
-    const students = data.data;
-    let html = '';
-    for (const student of students) {
-        html += `<tr>
-        <td>${student.id}</td>
-        <td>${student.first_name}</td>
-        <td>${student.last_name}</td>
-        </tr>`;
+function renderUsers(response: IAPIResponse) {
+    let tableHtml = `<tr><td>Id</td><td>First name</td><td>Last name</td></tr>`;
+    for (const user of response.data) {
+        tableHtml += `<tr><td>${user.id}</td><td>${user.first_name}</td><td>${user.last_name}</td></tr>`;
     }
-    $('#userListingTable').html(html);
+    $('#userListingTable').html(tableHtml);
 }
